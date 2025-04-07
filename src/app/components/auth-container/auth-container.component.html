@@ -1,0 +1,19 @@
+<div class="registro-container">
+  <div class="tab-buttons">
+    <button (click)="cambiarVista('login')"
+            [class.active]="vista === 'login'">Iniciar Sesión</button>
+    <button (click)="cambiarVista('registro')"
+            [class.active]="vista === 'registro'">Registrar Usuario</button>
+  </div>
+
+  <!-- ✅ Cada vista tiene su propio contenedor animado -->
+  <div *ngIf="vista === 'login'" @fadeInOut>
+    <app-login-global></app-login-global>
+  </div>
+
+  <div *ngIf="vista === 'registro'" @fadeInOut>
+    <app-registrar-cliente></app-registrar-cliente>
+  </div>
+</div>
+
+

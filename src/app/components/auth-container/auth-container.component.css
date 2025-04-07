@@ -1,0 +1,67 @@
+.fade-container {
+  position: relative;
+  width: 100%;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(100px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-leave {
+  opacity: 1;
+  transform: translateY(50px);
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+
+/* Contenedor de los botones tipo pestaña/tabulador */
+.tab-buttons {
+  display: flex;                   /* Usa Flexbox para alinear los botones */
+  justify-content: center;        /* Centra los botones horizontalmente */
+  align-items: normal;            /* Centra los botones verticalmente si se apilan */
+  gap: 0rem;                      /* Espacio entre los botones */
+  margin-bottom: -5rem;            /* Espacio inferior respecto al contenido */
+  margin-top: 5rem;
+  flex-wrap: wrap; /* Permite que los botones se apilen verticalmente en pantallas pequeñas */
+  flex-direction: row;            /* Dirección horizontal por defecto */
+}
+
+/* Estilos base de los botones del tabulador */
+.tab-buttons button {
+  padding: 0.75rem 2rem;          /* Espaciado interno vertical y horizontal */
+  border: none;                   /* Elimina el borde por defecto */
+  border-radius: 0.9rem;            /* Bordes redondeados */
+  font-weight: bold;              /* Texto en negrita */
+  cursor: pointer;                /* Cursor tipo mano al pasar el mouse */
+  background-color: #ccc;         /* Color de fondo gris claro */
+  color: white;                   /* Texto en blanco */
+  transition: 0.3s;               /* Transición suave en hover o cambios */
+}
+
+/* Estilos del botón activo (seleccionado) */
+.tab-buttons button.active {
+  background-color: #5e2c82;      /* Color de fondo morado cuando está activo */
+}
+
+/* --- Responsive para pantallas pequeñas (apilan los botones verticalmente) --- */
+@media (max-width: 600px) {
+  .tab-buttons {
+    flex-direction: column;       /* Cambia la dirección a vertical */
+    gap: 1rem;                    /* Reduce el espacio entre botones */
+  }
+}
+
+

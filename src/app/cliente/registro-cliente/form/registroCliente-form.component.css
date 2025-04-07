@@ -84,17 +84,21 @@
 
 /* Estilo base del contenedor de mensajes */
 .mensaje {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 600px; /* Ancho máximo */
-  margin: 1rem auto; /* Centrado con separación vertical */
-  padding: 1rem; /* Espaciado interno */
+  position: fixed; /* Se posiciona encima del contenido */
+  top: 2rem;        /* Espacio desde la parte superior */
+  left: 50%;        /* Centrado horizontal */
+  transform: translateX(-50%); /* Ajusta el centrado horizontal */
+  z-index: 9999;    /* Muy por encima de otros elementos */
+  padding: 1rem 2rem; /* Espaciado interno */
   border-radius: 8px; /* Bordes redondeados */
   font-weight: bold; /* Texto en negrita */
   text-align: center; /* Texto centrado */
   font-size: 1rem; /* Tamaño estándar de fuente */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
   opacity: 1;
   transition: opacity 1s ease-in-out; /* Transición suave */
 }
+
 
 /* Clase que oculta el mensaje con desvanecimiento */
 .fade-out {

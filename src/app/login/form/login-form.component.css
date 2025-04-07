@@ -1,0 +1,108 @@
+
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 10rem;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;                   /* Espacio entre formulario y logo */
+  flex-wrap: wrap;             /* Adaptable en pantallas pequeñas */
+}
+
+.logo-img {
+  width: 350px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cliente-form {
+  background-color: #f2e6ff;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.cliente-form h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #1e003e;
+}
+
+.cliente-form label {
+  font-weight: 600;
+}
+
+.cliente-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.cliente-form button {
+  background-color: #5e2c82;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cliente-form button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.cliente-form button:hover:not(:disabled) {
+  background-color: #7a42b4;
+}
+
+.mensaje {
+  position: fixed; /* Se posiciona encima del contenido */
+  top: 2rem;        /* Espacio desde la parte superior */
+  left: 50%;        /* Centrado horizontal */
+  transform: translateX(-50%); /* Ajusta el centrado horizontal */
+  z-index: 9999;    /* Muy por encima de otros elementos */
+  padding: 1rem 2rem; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Texto centrado */
+  font-size: 1rem; /* Tamaño estándar de fuente */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+  opacity: 1;
+  transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.mensaje-exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensaje-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

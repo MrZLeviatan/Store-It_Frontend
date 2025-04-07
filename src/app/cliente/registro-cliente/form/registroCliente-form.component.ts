@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { RegistroClienteService } from '../service/registroCliente.service';
 import { RegistroCliente } from '../models/registroCliente.dto';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { CommonModule } from '@angular/common';
 
@@ -13,14 +13,15 @@ import { CommonModule } from '@angular/common';
   // Ruta del archivo de plantilla HTML asociado a este componente
   templateUrl: 'registroCliente-form.component.html',
 
-  // Este componente es standalone (no pertenece a un módulo), por lo tanto importa sus propios módulos necesarios
+  // Este componente es standalone (no pertenece a un módulo), por lo tanto, importa sus propios módulos necesarios
   standalone: true,
 
   // Importaciones necesarias para el funcionamiento del componente (formularios, clases dinámicas, directivas comunes)
   imports: [
     FormsModule,
     NgClass,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
 
   // Estilos específicos del componente
