@@ -17,4 +17,8 @@ export class ClienteService {
   obtenerCliente(id: string): Observable<any> {
     return this.http.get<any>(`${BASE_URL}/${id}`);
   }
+
+  editarCliente(clienteDTO: { cedula: string, nombre: string }): Observable<any> {
+    return this.http.put<any>(`${BASE_URL}`, clienteDTO);
+  }
 }
