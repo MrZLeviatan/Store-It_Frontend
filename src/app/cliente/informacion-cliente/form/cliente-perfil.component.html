@@ -1,0 +1,18 @@
+<!-- src/app/cliente-perfil/cliente-perfil.component.html -->
+<div *ngIf="cargando" class="loading">
+  <p>Cargando...</p>
+</div>
+
+<div *ngIf="!cargando && cliente">
+  <h2>Perfil del Cliente</h2>
+  <div class="cliente-info">
+    <p><strong>Cédula:</strong> {{ cliente.cedula }}</p>
+    <p><strong>Nombre:</strong> {{ cliente.nombre }}</p>
+    <p><strong>Email:</strong> {{ cliente.email }}</p>
+    <p><strong>Rol:</strong> {{ cliente.rol }}</p>
+  </div>
+</div>
+
+<div *ngIf="!cargando && !cliente">
+  <p>No se encontró información del cliente.</p>
+</div>

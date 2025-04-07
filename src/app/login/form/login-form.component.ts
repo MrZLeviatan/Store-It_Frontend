@@ -47,10 +47,11 @@ export class LoginFormComponent {
     this.loginService.login(this.usuario).subscribe({
       next: (respuesta) => {
         const tipoUsuario = respuesta.mensaje;
-
+        const clienteId= respuesta.id;
         switch (tipoUsuario) {
           case 'CLIENTE':
-            this.router.navigate(['/cliente/home']);
+            this.router.navigate([`/cliente/perfil/${clienteId}`]);
+            this.mostrarMensajeTemporal('Ingreso Concebido',false)
             break;
           case 'ADMIN':
             this.router.navigate(['/admin/dashboard']);
