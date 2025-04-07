@@ -1,24 +1,23 @@
-/* Estilo principal para la página de perfil del cliente */
-.cliente-perfil-container {
+/* Contenedor general que centra vertical y horizontalmente */
+.cliente-perfil-wrapper {
   display: flex;
   justify-content: center; /* Centrado horizontal */
   align-items: center;     /* Centrado vertical */
-  padding: 2rem;
-  flex-wrap: wrap; /* Para que en pantallas pequeñas se acomode en columna */
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 60%; /* Ajusta el tamaño para que sea más grande */
-  margin-top: 5rem; /* Separación desde la parte superior */
+  min-height: 100vh;       /* Altura completa del viewport */
+  background-color: #f9f6fc;
 }
 
-/* Título del perfil */
-.cliente-perfil-container h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #5e2c82;
-  text-align: center;
-  margin-bottom: 2rem; /* Aumentar espacio entre el título y el contenido */
-  letter-spacing: 1px; /* Aumentar el espacio entre letras */
+/* Estilo principal para la página de perfil del cliente */
+.cliente-perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  background-color: #fff;
 }
 
 /* Contenedor de la información del cliente */
@@ -26,7 +25,7 @@
   background-color: #f2e6ff;
   padding: 2rem; /* Aumentar el espacio interno */
   border-radius: 1rem;
-  width: 100%;
+  width: 70%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem; /* Espacio debajo del contenedor */
   display: flex;

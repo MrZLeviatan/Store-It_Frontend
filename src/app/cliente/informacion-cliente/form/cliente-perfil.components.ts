@@ -71,4 +71,15 @@ export class ClientePerfilComponent implements OnInit {
       }
     });
   }
+
+  // Método para eliminar al cliente actual
+  eliminarCliente() {
+    /** if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
+      this.clienteServicio.eliminarCliente(this.cliente.id).subscribe(() => {
+        alert('Cliente eliminado exitosamente.');
+        this.cliente = null;
+      }, error => {
+        alert('Ocurrió un error al intentar eliminar el cliente.');
+      }); **/
+    }
 }
