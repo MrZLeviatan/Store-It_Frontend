@@ -1,49 +1,123 @@
-/* Estilos para el formulario de registro de cliente */
+/* Contenedor principal que alinea el logo y el formulario */
+.registro-container {
+  display: flex; /* Use flexbox para organizar los elementos hijos*/
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  gap: 5rem;  /* Espacio entre el logo y el formulario */
+  margin-top: 10rem; /* Separación desde la parte superior */
+  flex-wrap: wrap; /* Para que en pantallas pequeñas se acomode en columna */
+}
+
+/* Contenedor de la imagen del logo */
+.logo-container {
+  display: flex; /* Flexbox para centrar internamente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+/* Imagen del logo ajustada */
+.logo-img {
+  width: 300px; /* Tamaño ajustado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombras alrededor de la imagen */
+}
+
+/* Estilo para el formulario lavanda */
 .cliente-form {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fdfdfd;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f2e6ff; /* Fondo lavanda claro */
+  padding: 2rem; /* Espacio interno */
+  border-radius: 2rem; /* Border redondeados */
+  width: 400px; /* Ancho del formulario */
+  display: flex; /* Flexbox para organizar los campos verticalmente */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  gap: 0.75rem; /* Espacio entre los elementos */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra suave*/
 }
 
+/* Título dentro del formulario */
+.cliente-form h2 {
+  margin-top: 0; /* Sin margen superior */
+  margin-bottom: 1.5rem; /* Separación inferior */
+  font-size: 1.5rem; /* Tamaño de letra grande */
+  text-align: center; ; /* Centrado horizontal */
+  font-weight: bold; /* Letra en negrita */
+  color: #1e003e;  /* Color morado oscuro */
+}
+
+/* Etiquetas de los campos del formulario */
 .cliente-form label {
-  display: block;
-  margin-bottom: 12px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 600; /* Negrita intermedia */
 }
 
+/* Campos de entrada del formulario */
 .cliente-form input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
+  padding: 0.5rem; /* Espacio interno*/
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de texto estándar */
 }
 
+/* Botón de envío del formulario */
 .cliente-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #5e2c82; /* Fondo morado oscuro */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 0.75rem; /* Espaciado interno */
+  border-radius: 1rem; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo mano al pasar el mouse */
+  font-weight: bold; /* Texto en negrita */
+  margin-top: 1rem; /* Separación superior */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar color */
 }
 
+/* Estilo del botón cuando está deshabilitado */
 .cliente-form button:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
+  background-color: #aaa; /* Fondo gris claro */
+  cursor: not-allowed; /* Cursor de prohibido */
 }
 
+/* Estilo del botón al pasar el mouse (solo si no está deshabilitado) */
 .cliente-form button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: #7a42b4; /* Color morado más claro */
 }
+
+/* Estilo base del contenedor de mensajes */
+.mensaje {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 600px; /* Ancho máximo */
+  margin: 1rem auto; /* Centrado con separación vertical */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Texto centrado */
+  font-size: 1rem; /* Tamaño estándar de fuente */
+  opacity: 1;
+  transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+/* Clase que oculta el mensaje con desvanecimiento */
+.fade-out {
+  opacity: 0;
+}
+
+/* Estilo del mensaje de éxito */
+.mensaje-exito {
+  background-color: #d4edda; /* Fondo verde claro */
+  color: #155724; /* Texto verde oscuro */
+  border: 1px solid #c3e6cb; /* Borde verde */
+}
+
+/* Estilo del mensaje de error */
+.mensaje-error {
+  background-color: #f8d7da; /* Fondo rojo claro */
+  color: #721c24; /* Texto rojo oscuro */
+  border: 1px solid #f5c6cb; /* Borde rojo */
+}
+
+
+
+
+
+
 

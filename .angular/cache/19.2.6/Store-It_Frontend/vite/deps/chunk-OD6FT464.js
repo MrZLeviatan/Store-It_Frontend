@@ -31,6 +31,7 @@ var DOCUMENT = new InjectionToken(ngDevMode ? "DocumentToken" : "");
 export {
   parseCookieValue,
   PLATFORM_BROWSER_ID,
+  PLATFORM_SERVER_ID,
   isPlatformBrowser,
   isPlatformServer,
   XhrFactory,
@@ -52,4 +53,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-Z26FH3AK.js.map
+//# sourceMappingURL=chunk-OD6FT464.js.map
