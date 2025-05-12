@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RecursosHumanosAgenteVentasService {
-  private apiUrl = 'http://192.168.1.12:8080/api/agente-ventas/clientes';
+  private apiUrl = 'http://localhost:8080/api/agente-ventas/clientes';
 
   constructor(private http: HttpClient) {}
 

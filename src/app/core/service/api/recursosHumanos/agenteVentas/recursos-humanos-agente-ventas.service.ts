@@ -11,7 +11,7 @@ import {AgenteVentasDto} from '../../../../models/agenteVentas/profile/agenteVen
   providedIn: 'root',
 })
 export class RecursosHumanosAgenteVentasService{
-  private apiUrl = 'http://192.168.1.12:8080/api/recursos-humanos/agentes-ventas';
+  private apiUrl = 'http://localhost:8080/api/recursos-humanos/agentes-ventas';
 
 
   constructor(private http: HttpClient) {}

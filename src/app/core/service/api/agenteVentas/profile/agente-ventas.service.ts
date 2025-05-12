@@ -8,7 +8,7 @@ import {AgenteVentasDto} from '../../../../models/agenteVentas/profile/agenteVen
   providedIn: 'root',
 })
 export class AgenteVentasService {
-  private apiUrl = 'http://192.168.1.12:8080/api/agente-ventas';
+  private apiUrl = 'http://localhost:8080/api/agente-ventas';
 
   constructor(private http: HttpClient) {}
 

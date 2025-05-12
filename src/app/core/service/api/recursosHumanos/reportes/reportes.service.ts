@@ -10,7 +10,7 @@ import {ContratoDto} from '../../../../models/common/contrato.dto';
 })
 export class ReportesService {
 
-  private baseUrl = 'http://192.168.1.12:8080/api/recursos-humanos/reportes'; // Ruta base del backend
+  private baseUrl = 'http://localhost:8080/api/recursos-humanos/reportes'; // Ruta base del backend
 
   constructor(private http: HttpClient) {}
 

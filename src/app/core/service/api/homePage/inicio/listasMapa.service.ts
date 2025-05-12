@@ -10,7 +10,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class ListasMapaService {
 
-  private baseUrl = 'http://192.168.1.12:8080/api/store-it';
+  private baseUrl = 'http://localhost:8080/api/store-it';
   constructor(private http: HttpClient) {}
 
 

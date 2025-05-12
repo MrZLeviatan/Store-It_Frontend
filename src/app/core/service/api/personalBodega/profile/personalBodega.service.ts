@@ -8,7 +8,7 @@ import { BodegaDto } from '../../../../models/common/bodega.dto'
   providedIn: 'root',
 })
 export class PersonalBodegaService {
-  private apiUrl = 'http://192.168.1.12:8080/api/personal-bodega';
+  private apiUrl = 'http://localhost:8080/api/personal-bodega';
 
   constructor(private http: HttpClient) {}
 

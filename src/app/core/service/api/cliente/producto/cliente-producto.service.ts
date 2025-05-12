@@ -9,7 +9,7 @@ import { EspacioDto } from '../../../../models/common/espacio.dto';
 })
 export class ClienteProductoService {
 
-  private baseUrl = 'http://192.168.1.12:8080/api/cliente/producto'; // Ruta base del backend
+  private baseUrl = 'http://localhost:8080/api/cliente/producto'; // Ruta base del backend
 
   constructor(private http: HttpClient) { }
 

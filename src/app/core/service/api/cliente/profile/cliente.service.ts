@@ -7,7 +7,7 @@ import {ClienteDto} from '../../../../models/cliente/profile/clienteDto.dto';
   providedIn: 'root',
 })
 export class ClienteService {
-  private apiUrl = 'http://192.168.1.12:8080/api/cliente';
+  private apiUrl = 'http://localhost:8080/api/cliente';
 
   constructor(private http: HttpClient) {}
 

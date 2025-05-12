@@ -14,7 +14,7 @@ import {ProductoDto} from '../../../../models/common/producto.dto';
 })
 export class ProductoService {
 
-  private readonly baseUrl = 'http://192.168.1.12:8080/api/personal-bodega/producto'; // URL base del backend / Backend base URL
+  private readonly baseUrl = 'http://localhost:8080/api/personal-bodega/producto'; // URL base del backend / Backend base URL
 
   constructor(private http: HttpClient) {}
 

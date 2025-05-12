@@ -11,7 +11,7 @@ import {PersonalBodegaDto} from '../../../../models/personalBodega/profile/perso
   providedIn: 'root',
 })
 export class RecursosHumanosPersonalBodegaService {
-  private apiUrl = 'http://192.168.1.12:8080/api/recursos-humanos/personal-bodega';
+  private apiUrl = 'http://localhost:8080/api/recursos-humanos/personal-bodega';
 
 
   constructor(private http: HttpClient) {}

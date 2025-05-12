@@ -8,7 +8,7 @@ import {SedeDto} from '../../../../models/common/sede.dto';
   providedIn: 'root',
 })
 export class RecursosHumanosService {
-  private apiUrl = 'http://192.168.1.12:8080/api/recursos-humanos';
+  private apiUrl = 'http://localhost:8080/api/recursos-humanos';
 
   constructor(private http: HttpClient) {}
 

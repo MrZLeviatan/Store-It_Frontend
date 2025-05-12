@@ -12,7 +12,7 @@ import {catchError , tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContactoService {
-  private apiUrl = 'http://192.168.1.12:8080/api/store-it/contacto/enviar'; // Cambia al URL de tu backend
+  private apiUrl = 'http://localhost:8080/api/store-it/contacto/enviar'; // Cambia al URL de tu backend
 
   constructor(private http: HttpClient) {}
 

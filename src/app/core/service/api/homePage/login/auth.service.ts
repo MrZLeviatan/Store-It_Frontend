@@ -10,7 +10,7 @@ import { MensajeDto } from '../../../../models/common/mensajeDto.dto';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'http://192.168.1.12:8080/api/auth'; // Dominio base común
+  private readonly apiUrl = 'http://localhost:8080/api/auth'; // Dominio base común
 
 
 

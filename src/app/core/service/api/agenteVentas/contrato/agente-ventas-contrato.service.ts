@@ -11,7 +11,7 @@ import {ContratoDto} from '../../../../models/common/contrato.dto';
   providedIn: 'root',
 })
 export class AgenteVentasContratoService {
-  private apiUrl = 'http://192.168.1.12:8080/api/agente-ventas/contrato';
+  private apiUrl = 'http://localhost:8080/api/agente-ventas/contrato';
 
   constructor(private http: HttpClient) {
   }
