@@ -1,0 +1,86 @@
+<!-- Sidebar Menu -->
+<nav class="menu" [class.mobile]="isMobile">
+  <ul class="menu-content">
+    <li>
+      <a routerLink="/recursos-humanos/inicio">
+        <span class="material-symbols-outlined">home</span>
+        <span class="menu-text">Inicio</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/recursos-humanos/perfil">
+        <span class="material-symbols-outlined">person</span>
+        <span class="menu-text">Ver Perfil</span>
+      </a>
+
+    <li class="has-submenu"
+        (mouseenter)="abrirSubmenu()"
+        (mouseleave)="cerrarSubmenu()"
+        [class.active]="submenuAbierto">
+      <a (click)="toggleSubmenu()">
+        <span class="material-symbols-outlined">badge</span>
+        <span class="menu-text">Agente Ventas</span>
+        <span class="expand-icon material-symbols-outlined">expand_more</span>
+      </a>
+      <ul class="submenu" *ngIf="submenuAbierto">
+        <li>
+          <a routerLink="/recursos-humanos/ver-agentes">
+            <span class="material-symbols-outlined">groups</span>
+            <span class="submenu-text">Ver Agentes de Ventas</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/recursos-humanos/registroAgente">
+            <span class="material-symbols-outlined">person_add</span>
+            <span class="submenu-text">Registrar Agente Ventas</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li class="has-submenu"
+        (mouseenter)="abrirSubmenuBodega()"
+        (mouseleave)="cerrarSubmenuBodega()"
+        [class.active]="submenuBodegaAbierto">
+      <a (click)="toggleSubmenuBodega()">
+        <span class="material-symbols-outlined">warehouse</span>
+        <span class="menu-text">Personal Bodega</span>
+        <span class="expand-icon material-symbols-outlined">expand_more</span>
+      </a>
+      <ul class="submenu" *ngIf="submenuBodegaAbierto">
+        <li>
+          <a routerLink="/recursos-humanos/ver-personal">
+            <span class="material-symbols-outlined">groups</span>
+            <span class="submenu-text">Ver Personal</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/recursos-humanos/registrarPersonal">
+            <span class="material-symbols-outlined">person_add</span>
+            <span class="submenu-text">Registrar Personal</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li>
+      <a routerLink="/recursos-humanos/reportes">
+        <span class="material-symbols-outlined">bar_chart</span>
+        <span class="menu-text">Reportes</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="logout()">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="menu-text">Salir</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

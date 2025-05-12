@@ -1,0 +1,163 @@
+/* Estilo para el formulario */
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Indicador de pasos */
+.pasos-indicador {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  align-items: center;
+  font-family: Verdana, Geneva, sans-serif;
+
+}
+
+.paso {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.95em;
+}
+
+.paso .circulo {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.paso.activo {
+  color: #d36600;
+}
+
+.paso.activo .circulo {
+  background-color: #d36600;
+  border-color: #d36600;
+}
+
+/* Título del formulario */
+legend {
+  font-size: 2em;
+  margin-bottom: 24px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.05em;
+  margin-bottom: 8px;
+  color: #444;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d36600;
+  background-color: #fff;
+}
+
+/* Imagen de perfil */
+.imagen-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid #d36600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  overflow: hidden;
+  margin: auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.imagen-perfil:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagen-perfil span {
+  color: #d36600;
+  font-size: 0.95em;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Botón de envío */
+button {
+  background-color: #d36600;
+  color: #fff;
+  padding: 14px 24px;
+  font-size: 1.05em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-group{
+  display: flex;              /* Usa flexbox para alinear en fila */
+  gap: 10px;                  /* Espacio entre botones */
+  justify-content: flex-end; /* Opcional: alinear a la derecha */
+  margin-top: 1rem;           /* Espaciado superior opcional */
+}
+
+
+
+button:hover {
+  background-color: #b85400;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button:disabled:hover {
+  background-color: #ccc;
+  transform: none;
+}

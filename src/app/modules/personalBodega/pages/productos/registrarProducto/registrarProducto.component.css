@@ -1,0 +1,133 @@
+/* Estilo general */
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  color: white;
+  line-height: 1.6;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Contenedor del formulario */
+.container {
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Títulos */
+h2 {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+/* Estilos para las etiquetas del formulario */
+.container label {
+  color: whitesmoke;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos para los campos de formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+input,
+select {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #d36600;
+  box-shadow: 0 0 0 2px rgba(211, 102, 0, 0.15);
+  outline: none;
+}
+
+/* Estilos para el botón */
+button[type="submit"] {
+  padding: 1rem 1.5rem;
+  background-color: #d36600;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #b55300;
+  transform: translateY(-2px);
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para los mensajes de error */
+.text-danger {
+  color: #c62828;
+}
+
+.text-danger div {
+  font-weight: 600;
+}
+
+/* Estilo de los inputs con validación */
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+  border-color: #c62828;
+}
+
+input.ng-touched.ng-valid,
+select.ng-touched.ng-valid {
+  border-color: #2e7d32;
+}
+
+.button{
+  margin-bottom: 20px; /* Ajusta el valor según el espacio que desees */
+}
+
+.seleccionado {
+  background-color: #d36600;
+  color: #fff;
+  font-weight: 600;
+  border-color: #b55300;
+}
+
+/* Mensajes */
+.mensaje-exito {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  padding: 0.85rem;
+  border-left: 4px solid #2e7d32;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.mensaje-error {
+  background-color: #fdecea;
+  color: #c62828;
+  padding: 0.85rem;
+  border-left: 4px solid #c62828;
+  border-radius: 12px;
+  font-weight: 600;
+}
+

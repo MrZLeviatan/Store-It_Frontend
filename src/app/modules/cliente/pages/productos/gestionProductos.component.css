@@ -1,0 +1,157 @@
+/* Contenedor principal */
+.container {
+  padding: 2rem;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Título principal */
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  color: white;
+}
+
+/* Mensajes de carga y error */
+.loading, .error {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #cc0000;
+  font-size: 1rem;
+}
+
+/* Estilos para el grid de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsive */
+  gap: 20px;
+}
+
+/* Tarjeta de producto */
+.producto-card {
+  background-color: rgba(255, 255, 255, 0.09);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Efecto al pasar el ratón sobre la tarjeta */
+.producto-card:hover {
+  background: #f1f1f1;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo del nombre del producto */
+.producto-card h3, h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #d36600;
+}
+
+/* Descripción del producto */
+.producto-card p {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 1.5rem;
+}
+
+/* Estado del producto (etiqueta) */
+.estado {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #d36600; /* Color principal */
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Modal de detalle */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  z-index: 11;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Detalles del producto en el modal */
+.detalle {
+  margin-bottom: 1.5rem;
+  color: black;
+}
+
+.detalle strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Información del espacio */
+.espacio-info {
+  margin-top: 1.5rem;
+}
+
+.espacio-info h3 {
+  font-size: 1.4rem;
+  color: #d36600;
+  margin-bottom: 1rem;
+}
+
+.espacio-info p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+/* Botón de cerrar en el modal */
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+}
+
+.cerrar:hover {
+  color: #d36600; /* Color de hover */
+}
+
+/* Estilo de transición para modal y efectos visuales */
+.modal-backdrop, .modal {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal {
+  transition: transform 0.3s ease-in-out;
+}
+

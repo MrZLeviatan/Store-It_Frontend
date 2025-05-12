@@ -1,0 +1,81 @@
+<form [formGroup]="filtroForm" (ngSubmit)="buscarAgentes()" class="filtros-form">
+  <input type="text" placeholder="ID de Sede" formControlName="idSede">
+  <input type="date" placeholder="Fecha contratación" formControlName="fechaContratacion">
+
+  <select formControlName="tipoContrato">
+    <option value="">-- Tipo de Contrato --</option>
+    <option value="DEFINIDO">Definido</option>
+    <option value="INDEFINIDO">Indefinido</option>
+    <option value="PRESTACION_SERVICIOS">Prestación de Servicios</option>
+  </select>
+
+  <select formControlName="estadoContratoLaboral">
+    <option value="">-- Estado Contrato --</option>
+    <option value="ACTIVO">Activo</option>
+    <option value="FINALIZADO">Finalizado</option>
+    <option value="SUSPENDIDO">Suspendido</option>
+  </select>
+
+  <button type="submit">Buscar</button>
+  <button type="button" (click)="limpiarFiltros()">Limpiar</button>
+</form>
+
+<table *ngIf="agentes.length > 0">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Telefono</th>
+    <th>Telefono Secundario</th>
+    <th>Contrato</th>
+    <th>Estado</th>
+    <th>Fecha Contratación</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let agente of agentes" (click)="abrirModal(agente)" style="cursor: pointer;">
+  <td>{{ agente.nombre }}</td>
+    <td>{{ agente.user.email }}</td>
+    <td>{{ agente.telefono}}</td>
+    <td>{{ agente.telefonoSecundario}}</td>
+    <td>{{ agente.datosLaborales.tipoContrato }}</td>
+    <td>{{ agente.datosLaborales.estadoContratoLaboral }}</td>
+    <td>{{ agente.datosLaborales.fechaContratacion }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="paginacion">
+  <button (click)="cambiarPagina(filtroForm.value.pagina - 1)" [disabled]="filtroForm.value.pagina === 0">Anterior</button>
+  <span>Página {{ filtroForm.value.pagina }}</span>
+  <button (click)="cambiarPagina(filtroForm.value.pagina + 1)">Siguiente</button>
+</div>
+
+
+
+<div class="modal-overlay" *ngIf="agenteSeleccionado">
+  <div class="modal-content">
+    <div class="modal-body">
+      <!-- Imagen del agente -->
+      <div class="modal-image">
+        <img [src]="agenteSeleccionado.imagenPerfil" alt="Foto del agente" />
+      </div>
+
+      <!-- Detalles del agente -->
+      <div class="modal-info">
+        <h2>{{ agenteSeleccionado.nombre }}</h2>
+        <p><strong>Correo:</strong> {{ agenteSeleccionado.user.email }}</p>
+        <p><strong>Teléfono:</strong> {{ agenteSeleccionado.telefono }}</p>
+        <p><strong>Teléfono Secundario:</strong> {{ agenteSeleccionado.telefonoSecundario }}</p>
+        <p><strong>Tipo Contrato:</strong> {{ agenteSeleccionado.datosLaborales.tipoContrato }}</p>
+        <p><strong>Estado Contrato:</strong> {{ agenteSeleccionado.datosLaborales.estadoContratoLaboral }}</p>
+        <p><strong>Fecha Contratación:</strong> {{ agenteSeleccionado.datosLaborales.fechaContratacion }}</p>
+
+        <button (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

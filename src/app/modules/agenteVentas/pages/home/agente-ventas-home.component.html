@@ -1,0 +1,64 @@
+<!-- Sidebar Menu -->
+<nav class="menu" [class.mobile]="isMobile">
+  <ul class="menu-content">
+
+    <li>
+      <a routerLink="/agente-ventas/inicio">
+        <span class="material-symbols-outlined">home</span>
+        <span class="menu-text">Inicio</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/agente-ventas/perfil">
+        <span class="material-symbols-outlined">person</span>
+        <span class="menu-text">Ver Perfil</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/agente-ventas/registrarCliente">
+        <span class="material-symbols-outlined">person_add</span>
+        <span class="menu-text">Registrar Cliente</span>
+      </a>
+    </li>
+
+    <li class="has-submenu"
+        (mouseenter)="abrirSubmenuContrato()"
+        (mouseleave)="cerrarSubmenuContrato()"
+        [class.active]="submenuContratoAbierto">
+      <a (click)="toggleSubmenuContrato()">
+        <span class="material-symbols-outlined">description</span>
+        <span class="menu-text">Contrato</span>
+        <span class="expand-icon material-symbols-outlined">expand_more</span>
+      </a>
+      <ul class="submenu" *ngIf="submenuContratoAbierto">
+        <li>
+          <a routerLink="/agente-ventas/registrarContrato">
+            <span class="material-symbols-outlined">add_circle</span>
+            <span class="submenu-text">Registrar Contrato</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/agente-ventas/ver-contratos-agente">
+            <span class="material-symbols-outlined">folder_open</span>
+            <span class="submenu-text">Ver Contratos</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a (click)="logout()">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="menu-text">Salir</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

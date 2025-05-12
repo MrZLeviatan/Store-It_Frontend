@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthContainerComponent } from './components/auth-container/auth-container.component';
-import {RouterOutlet} from '@angular/router';
-
-
+import { RouterOutlet} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
   imports: [CommonModule, RouterOutlet],
-  template: `<router-outlet></router-outlet>`,  // Este es el lugar donde se renderizan las rutas
 })
-export class AppComponent {}
 
+export class AppComponent {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,
+              private router: Router){
+
+  }
+}

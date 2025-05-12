@@ -1,0 +1,119 @@
+<app-fondo-animado></app-fondo-animado>
+
+<body>
+<!-- Contenido principal -->
+<div class="main-container">
+  <h1 class="fade-title">Store-It</h1>
+
+  <!-- Descripción breve del sistema -->
+  <p class="fade-subdescription">
+    Optimiza el control de espacios, movimientos de productos y facturación desde un solo lugar.
+    Store-It es la solución integral para administrar tus bodegas de forma segura, eficiente y en tiempo real.
+  </p>
+
+  <!-- Botón principal centrado para contacto -->
+  <div class="main-button-container">
+    <button class="main-action-button" (click)="irAContacto()">
+      Contáctanos <i class="fa-solid fa-phone"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Sección secundaria que destaca las funcionalidades -->
+<div class="sub-container">
+  <div class="features">
+    <!-- Funcionalidad: Control de Espacios -->
+    <div class="feature">
+      <i class="fa-solid fa-warehouse"></i>
+      <h3>Control de Espacios</h3>
+      <p>Administra el uso de bodegas de forma eficiente y visual.</p>
+    </div>
+
+    <!-- Funcionalidad: Movimientos de Productos -->
+    <div class="feature">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <h3>Movimientos de Productos</h3>
+      <p>Registra entradas, salidas en las bodegas.</p>
+    </div>
+
+    <!-- Funcionalidad: Facturación Automatizada -->
+    <div class="feature">
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+      <h3>Facturación Automatizada</h3>
+      <p>Genera facturas mensuales con solo un click.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Título del banner -->
+<div class="banner-titulo">
+  <h2>Conoce nuestros servicios</h2>
+</div>
+
+<!-- Carrusel solo para escritorio (con botones) -->
+<div class="services-banner desktop-only">
+
+  <!-- Botón para navegar hacia la izquierda -->
+  <button class="circle-button" (click)="cambiarContenido(-1)">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+
+  <!-- Contenido del carrusel: solo se muestra el servicio actual -->
+  <div class="carousel-content-horizontal" *ngIf="servicios[contenidoActual] as servicio">
+
+    <!-- Imagen del servicio -->
+    <img [src]="servicio.imagen" [alt]="servicio.titulo" class="carousel-image" />
+    <div class="carousel-info">
+      <!-- Título del servicio -->
+      <h3>{{ servicio.titulo }}</h3>
+      <!-- Descripción del servicio -->
+      <p>{{ servicio.descripcion }}</p>
+    </div>
+  </div>
+
+  <!-- Botón para navegar hacia la derecha -->
+  <button class="circle-button" (click)="cambiarContenido(1)">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+</div>
+
+<!-- Carrusel solo para móvil (deslizable) -->
+<div class="services-banner mobile-only">
+
+  <!-- Contenedor del carrusel que permite el desplazamiento horizontal -->
+  <div class="carousel-scroll-container" (scroll)="actualizarIndice($event)">
+
+    <!-- Elementos del carrusel: cada uno con una imagen y descripción -->
+    <div class="carousel-item" *ngFor="let servicio of servicios">
+
+      <!-- Imagen del servicio -->
+      <img [src]="servicio.imagen" [alt]="servicio.titulo" class="carousel-image" />
+      <div class="carousel-info">
+        <!-- Título del servicio -->
+        <h3>{{ servicio.titulo }}</h3>
+        <!-- Descripción del servicio -->
+        <p>{{ servicio.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicadores de posición en el carrusel (solo visible en móvil) -->
+  <div class="carousel-indicators">
+    <!-- Un indicador por cada servicio, con una clase 'active' si es el servicio actual -->
+    <span *ngFor="let servicio of servicios; let i = index" [class.active]="i === contenidoActual"></span>
+  </div>
+</div>
+
+
+<!-- Sección del mapa interactivo -->
+<!-- Contenedor del mapa con clase CSS -->
+<div class="map-section">
+  <h2 class="map-title">Ubicación de Nuestras Bodegas y Sedes</h2>
+  <div id="map" class="map-container"></div> <!-- Clase personalizada para el mapa -->
+</div>
+
+<footer class="footer" >
+  <p>&copy; 2025 Store-It. Todos los derechos reservados.</p>
+</footer>
+</body>

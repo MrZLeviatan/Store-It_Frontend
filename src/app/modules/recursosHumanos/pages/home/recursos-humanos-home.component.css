@@ -1,0 +1,188 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(to left, #64C9CF, #053f5c);
+  color: white;
+  width: 100%;
+  height: 100vh;
+  overflow: auto; /* Permite scroll */
+}
+
+/* Sidebar */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85px;
+  height: 100vh;
+  background: #ffffff12;
+  backdrop-filter: blur(6px);
+  box-shadow: 8px 0 9px 0 #00000014;
+  overflow-y: auto;
+  padding-top: 20px;
+  z-index: 1000;
+  transition: width 0.3s;
+}
+
+/* Solo en desktop se expande */
+@media (min-width: 769px) {
+  .menu:hover {
+    width: 260px;
+  }
+
+  .menu:hover .menu-text {
+    display: inline;
+  }
+
+  .menu:hover ~ .main-content {
+    margin-left: 260px;
+  }
+}
+
+.menu-content {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-content li {
+  margin-bottom: 15px;
+  transition: background 0.3s;
+  border-radius: 0 50px 50px 0;
+  padding-left: 10px;
+}
+
+.menu-content li:hover {
+  background: #F27F0C;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-family: 'Calibri', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-size: 24px;
+  margin-right: 10px;
+  padding: 10px;
+  background: #F27F0C;
+  border-radius: 50%;
+}
+
+.menu-text {
+  display: none;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 85px;
+  padding: 30px;
+  flex: 1;
+  transition: margin-left 0.3s;
+}
+
+/* ==== SUBMENÚ ==== */
+.submenu {
+  list-style: none;
+  padding-left: 45px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.submenu li {
+  border-radius: 0 50px 50px 0;
+  transition: background 0.3s;
+}
+
+.submenu li a {
+  font-size: 14px;
+  padding: 8px;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  font-family: 'Calibri', sans-serif;
+  text-decoration: none;
+}
+
+.submenu li:hover {
+  background: #053f5c;
+}
+
+.submenu li:hover a {
+  color: white;
+}
+
+.expand-icon {
+  margin-left: auto;
+  font-size: 20px;
+}
+
+/* Por defecto, oculta el icono de expansión */
+.has-submenu .expand-icon {
+  display: none;
+}
+
+/* Solo lo muestra si el menú está expandido Y el li está activo o en hover */
+.menu:hover .has-submenu:hover .expand-icon,
+.menu:hover .has-submenu.active .expand-icon {
+  display: inline-block;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.has-submenu.active .expand-icon {
+  transform: rotate(180deg);
+}
+
+
+/* Estilos para el botón de toggle */
+.menu-toggle {
+  display: none; /* Se oculta por defecto */
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10001; /* Asegura que el botón esté encima del menú */
+}
+
+/* Comportamiento móvil */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Se muestra en móviles */
+  }
+
+  .menu-content {
+    display: none; /* Oculta el menú por defecto */
+    flex-direction: column; /* Asegura que los ítems estén en columna */
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .menu-content.open {
+    display: block; /* Muestra el menú cuando está abierto */
+  }
+
+  /* Asegura que el menú ocupe toda la pantalla cuando se abra */
+  .menu.open {
+    height: 100%; /* Ajusta el menú para que se vea completamente */
+  }
+
+  /* Ajustes adicionales para el submenú */
+  .submenu {
+    display: none;
+  }
+
+  .has-submenu.active .submenu {
+    display: block;
+  }
+}
+

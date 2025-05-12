@@ -1,0 +1,22 @@
+<!-- Selector de sede -->
+<div class="selector-sede-container">
+  <label for="sede" class="label-sede">Selecciona una sede:</label>
+  <select id="sede" (change)="onSedeSeleccionada($event)" class="select-sede">
+    <option *ngFor="let sede of sedes" [value]="sede.id">
+      {{ sede.nombre }}
+    </option>
+  </select>
+</div>
+
+<!-- Gráfico de barras -->
+<div *ngIf="agentes.length > 0" class="grafico-container">
+  <h3>Contratos por agente de ventas</h3>
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [type]="barChartType">
+  </canvas>
+</div>
+
+

@@ -1,0 +1,87 @@
+<div class="main-content">
+  <h1 class="profile-title">Mi Cuenta</h1>
+  <div class="profile-container" *ngIf="cliente">
+    <div class="profile-image">
+      <img [src]="cliente.imagenPerfil" alt="Foto de perfil" />
+    </div>
+    <div class="profile-info">
+      <h2>{{ cliente.nombre }}</h2>
+
+      <section class="info-section">
+        <h3>Información Personal</h3>
+        <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
+        <p><strong>Tel. Secundario:</strong> {{ cliente.telefonoSecundario }}</p>
+        <p><strong>Email:</strong> {{ cliente.user.email }}</p>
+      </section>
+
+      <!-- Botón para abrir el modal de edición -->
+      <button (click)="abrirModal()" class="edit-btn">Editar Cuenta</button>
+    </div>
+
+  </div>
+
+
+  <!-- Modal para la imagen -->
+  <div class="modal-imagen" *ngIf="mostrarModalImagen">
+    <div class="modal-imagen-content">
+      <span class="close" (click)="cerrarModalImagen()">×</span>
+      <img [src]="imagenSedeAmpliada" alt="Imagen Sede Ampliada" class="imagen-modal" />
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal-overlay" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <h3>Editar Cuenta</h3>
+      <form (ngSubmit)="editarCuenta()" #formEditar="ngForm" enctype="multipart/form-data">
+        <input type="hidden" [value]="cliente.id" name="id">
+
+        <label>Nombre:</label>
+        <input type="text" [(ngModel)]="form.nombre" name="nombre" maxlength="100" required>
+
+        <!-- Teléfono principal -->
+        <label>Teléfono:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefono"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefono"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+        <!-- Teléfono secundario -->
+        <label>Teléfono Secundario:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefonoSecundario"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefonoSecundario"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+
+        <!-- Imagen de perfil -->
+        <label>Imagen de Perfil:</label>
+        <input type="file" (change)="onFileChange($event)" accept="image/png, image/jpeg" name="imagenPerfil">
+
+        <!-- Vista previa de la imagen -->
+        <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Vista previa" class="imagen-preview">
+
+        <!-- Botones -->
+        <div class="modal-actions">
+          <button type="submit" class="btn guardar">Guardar Cambios</button>
+          <button type="button" class="btn cancelar" (click)="cerrarModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+

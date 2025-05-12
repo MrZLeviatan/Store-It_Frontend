@@ -1,0 +1,104 @@
+<div class="main-content">
+  <h1 class="profile-title">Mi Cuenta – Agente de Ventas</h1>
+  <div class="profile-container" *ngIf="agenteVentas">
+    <div class="profile-image">
+      <img [src]="agenteVentas.imagenPerfil" alt="Foto de perfil" />
+    </div>
+    <div class="profile-info">
+      <h2>{{ agenteVentas.nombre }}</h2>
+
+      <section class="info-section">
+        <h3>Información Personal</h3>
+        <p><strong>Teléfono:</strong> {{ agenteVentas.telefono }}</p>
+        <p><strong>Tel. Secundario:</strong> {{ agenteVentas.telefonoSecundario }}</p>
+        <p><strong>Email:</strong> {{ agenteVentas.user.email }}</p>
+      </section>
+
+      <section class="info-section">
+        <h3>Datos Laborales</h3>
+        <p><strong>Fecha Contratación:</strong> {{ agenteVentas.datosLaborales.fechaContratacion }}</p>
+        <p><strong>Fecha Fin Contrato:</strong> {{ agenteVentas.datosLaborales.fechaFinContrato || 'Activo' }}</p>
+        <p><strong>Sueldo:</strong> ${{ agenteVentas.datosLaborales.sueldo }}</p>
+        <p><strong>Email Empresarial:</strong> {{ agenteVentas.datosLaborales.emailEmpresarial }}</p>
+        <p><strong>Tipo Contrato:</strong> {{ agenteVentas.datosLaborales.tipoContrato }}</p>
+        <p><strong>Estado Contrato:</strong> {{ agenteVentas.datosLaborales.estadoContratoLaboral }}</p>
+      </section>
+
+      <button (click)="abrirModal()" class="edit-btn">Editar Cuenta</button>
+    </div>
+  </div>
+
+  <div class="banner-sede">
+    <h1 class="titulo-sede">Detalles de la Sede Asignada</h1>
+    <section class="info-section" *ngIf="sede">
+      <div class="sede-contenido">
+        <div class="sede-fotos" *ngIf="sede.fotos?.length">
+          <div class="sede-foto-grid">
+            <img *ngFor="let foto of sede.fotos" [src]="foto" alt="Foto Sede" (click)="abrirModalImagen(foto)" />
+          </div>
+        </div>
+
+        <div class="sede-info">
+          <h3>Información de la Sede</h3>
+          <p><strong>Nombre:</strong> {{ sede.nombre }}</p>
+          <p><strong>Dirección:</strong> {{ sede.direccion }}</p>
+          <p><strong>Teléfono:</strong> {{ sede.telefono }}</p>
+          <p><strong>Ubicación:</strong> {{ sede.ubicacion.ciudad }}, {{ sede.ubicacion.pais }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-imagen" *ngIf="mostrarModalImagen">
+    <div class="modal-imagen-content">
+      <span class="close" (click)="cerrarModalImagen()">×</span>
+      <img [src]="imagenSedeAmpliada" alt="Imagen Sede Ampliada" class="imagen-modal" />
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <h3>Editar Cuenta</h3>
+      <form (ngSubmit)="editarCuenta()" #formEditar="ngForm" enctype="multipart/form-data">
+        <input type="hidden" [value]="agenteVentas.id" name="id">
+
+        <label>Nombre:</label>
+        <input type="text" [(ngModel)]="form.nombre" name="nombre" maxlength="100" required>
+
+        <label>Teléfono:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefono"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefono"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+        <label>Teléfono Secundario:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefonoSecundario"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefonoSecundario"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+        <label>Imagen de Perfil:</label>
+        <input type="file" (change)="onFileChange($event)" accept="image/png, image/jpeg" name="imagenPerfil">
+
+        <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Vista previa" class="imagen-preview">
+
+        <div class="modal-actions">
+          <button type="submit" class="btn guardar">Guardar Cambios</button>
+          <button type="button" class="btn cancelar" (click)="cerrarModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

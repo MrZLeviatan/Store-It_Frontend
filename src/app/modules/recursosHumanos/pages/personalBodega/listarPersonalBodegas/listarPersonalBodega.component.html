@@ -1,0 +1,97 @@
+<!-- Formulario de filtros para Personal de Bodega / Filter form for Warehouse Staff -->
+<form [formGroup]="filtroForm" (ngSubmit)="buscarPersonalBodega()" class="filtros-form">
+  <!-- ID de Bodega -->
+  <input type="text" placeholder="ID de Bodega" formControlName="idBodega">
+
+  <!-- Fecha de Contratación -->
+  <input type="date" placeholder="Fecha contratación" formControlName="fechaContratacion">
+
+  <!-- Tipo de Contrato -->
+  <select formControlName="tipoContrato">
+    <option value="">-- Tipo de Contrato --</option>
+    <option value="DEFINIDO">Definido</option>
+    <option value="INDEFINIDO">Indefinido</option>
+    <option value="PRESTACION_SERVICIOS">Prestación de Servicios</option>
+  </select>
+
+  <!-- Estado del Contrato -->
+  <select formControlName="estadoContratoLaboral">
+    <option value="">-- Estado Contrato --</option>
+    <option value="ACTIVO">Activo</option>
+    <option value="FINALIZADO">Finalizado</option>
+    <option value="SUSPENDIDO">Suspendido</option>
+  </select>
+
+  <!-- Tipo de Cargo -->
+  <select formControlName="tipoCargo">
+    <option value="">-- Tipo de Cargo --</option>
+    <option value="ENCARGADO">Encargado</option>
+    <option value="OPERARIO">Operario</option>
+    <option value="PASANTE">Pasante</option>
+  </select>
+
+  <!-- Botones -->
+  <button type="submit">Buscar</button>
+  <button type="button" (click)="limpiarFiltros()">Limpiar</button>
+</form>
+
+<!-- Tabla de resultados -->
+<table *ngIf="personalBodega.length > 0">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Teléfono</th>
+    <th>Teléfono Secundario</th>
+    <th>Cargo</th>
+    <th>Contrato</th>
+    <th>Estado</th>
+    <th>Fecha Contratación</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let persona of personalBodega" (click)="abrirModal(persona)" style="cursor: pointer;">
+    <td>{{ persona.nombre }}</td>
+    <td>{{ persona.user.email }}</td>
+    <td>{{ persona.telefono }}</td>
+    <td>{{ persona.telefonoSecundario }}</td>
+    <td>{{ persona.tipoCargo }}</td>
+    <td>{{ persona.datosLaborales.tipoContrato }}</td>
+    <td>{{ persona.datosLaborales.estadoContratoLaboral }}</td>
+    <td>{{ persona.datosLaborales.fechaContratacion }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Controles de paginación -->
+<div class="paginacion">
+  <button (click)="cambiarPagina(filtroForm.value.pagina - 1)" [disabled]="filtroForm.value.pagina === 0">Anterior</button>
+  <span>Página {{ filtroForm.value.pagina }}</span>
+  <button (click)="cambiarPagina(filtroForm.value.pagina + 1)">Siguiente</button>
+</div>
+
+<!-- Modal de detalle del personal -->
+<div class="modal-overlay" *ngIf="personalSeleccionado">
+  <div class="modal-content">
+    <div class="modal-body">
+      <!-- Imagen -->
+      <div class="modal-image">
+        <img [src]="personalSeleccionado.imagenPerfil" alt="Foto del personal" />
+      </div>
+
+      <!-- Información detallada -->
+      <div class="modal-info">
+        <h2>{{ personalSeleccionado.nombre }}</h2>
+        <p><strong>Correo:</strong> {{ personalSeleccionado.user.email }}</p>
+        <p><strong>Teléfono:</strong> {{ personalSeleccionado.telefono }}</p>
+        <p><strong>Teléfono Secundario:</strong> {{ personalSeleccionado.telefonoSecundario }}</p>
+        <p><strong>Cargo:</strong> {{ personalSeleccionado.tipoCargo}}</p>
+        <p><strong>Tipo Contrato:</strong> {{ personalSeleccionado.datosLaborales.tipoContrato }}</p>
+        <p><strong>Estado Contrato:</strong> {{ personalSeleccionado.datosLaborales.estadoContratoLaboral }}</p>
+        <p><strong>Fecha Contratación:</strong> {{ personalSeleccionado.datosLaborales.fechaContratacion }}</p>
+
+        <button (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

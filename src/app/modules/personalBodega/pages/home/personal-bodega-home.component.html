@@ -1,0 +1,54 @@
+<!-- Sidebar Menu -->
+<nav class="menu" [class.mobile]="isMobile">
+  <ul class="menu-content">
+    <li>
+      <a routerLink="/personal-bodega/inicio">
+        <span class="material-symbols-outlined">home</span>
+        <span class="menu-text">Inicio</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/personal-bodega/perfil">
+        <span class="material-symbols-outlined">person</span>
+        <span class="menu-text">Ver Perfil</span>
+      </a>
+
+    <li class="has-submenu"
+        (mouseenter)="abrirSubmenu()"
+        (mouseleave)="cerrarSubmenu()"
+        [class.active]="submenuAbierto">
+      <a (click)="toggleSubmenu()">
+        <span class="material-symbols-outlined">inventory</span>
+        <span class="menu-text">Producto</span>
+        <span class="expand-icon material-symbols-outlined">expand_more</span>
+      </a>
+      <ul class="submenu" *ngIf="submenuAbierto">
+        <li>
+          <a routerLink="/personal-bodega/registrarProducto">
+            <span class="material-symbols-outlined">add_box</span>
+            <span class="submenu-text">Registrar Producto</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/personal-bodega/retirarProducto">
+            <span class="material-symbols-outlined">remove_shopping_cart</span>
+            <span class="submenu-text">Retirar Producto</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li>
+      <a (click)="logout()">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="menu-text">Salir</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,67 @@
+/* Estilos generales del contenedor */
+.selector-sede-container,
+.grafico-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.grafico-container h3{
+  color: white;
+  text-align: center;
+}
+
+.selector-sede-container label{
+  color: white;
+}
+
+/* Estilo para el título del gráfico */
+.grafico-titulo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilos para el selector de sede */
+.label-sede {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  color: #555;
+}
+
+.select-sede {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.select-sede:hover {
+  border-color: #d36600;
+}
+
+.select-sede:focus {
+  outline: none;
+  border-color: #d36600;
+}
+
+/* Estilos para el gráfico de barras */
+.grafico-barras {
+  width: 100%;          /* El gráfico sigue siendo de ancho completo */
+  max-width: 50%;       /* El gráfico se ajusta a un máximo del 90% del contenedor */
+  height: 200px;        /* Altura ajustada del gráfico */
+  border-radius: 8px;
+}
+
+
+

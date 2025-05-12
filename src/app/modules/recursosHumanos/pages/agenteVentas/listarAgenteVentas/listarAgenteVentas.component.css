@@ -1,0 +1,171 @@
+/* Estilo general del formulario */
+/* Filtros form styles / Estilos del formulario de filtros */
+.filtros-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.filtros-form input,
+.filtros-form select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  min-width: 180px;
+}
+
+.filtros-form button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: Verdana, Geneva, sans-serif;
+
+}
+
+.filtros-form button[type="submit"] {
+  background-color: #d36600;
+  color: white;
+}
+
+.filtros-form button[type="submit"]:hover {
+  background-color: #b65600;
+}
+
+.filtros-form button[type="button"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.filtros-form button[type="button"]:hover {
+  background-color: #cacaca;
+}
+
+/* Tabla de resultados / Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+thead {
+  background-color: #d36600;
+  color: white;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+  color: #d36600;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Paginación / Pagination styling */
+.paginacion {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  font-family: Verdana, Geneva, sans-serif;
+  color: white;
+}
+
+.paginacion button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #d36600;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paginacion button:hover:not(:disabled) {
+  background-color: #b65600;
+}
+
+.paginacion button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.paginacion span {
+  font-weight: bold;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-body {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.modal-image img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.modal-info {
+  flex: 1;
+  color: #333;
+}
+
+.modal-info h2 {
+  margin-top: 0;
+  color: #d36600;
+}
+
+.modal-info button {
+  margin-top: 1rem;
+  background-color: #d36600;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,448 @@
+/* Añadir margen superior al div .main-content */
+.main-content {
+  margin-top: 30px;  /* Ajusta este valor a lo que necesites */
+}
+
+/* Título del perfil */
+.profile-title {
+  font-size: 32px; /* Tamaño grande */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px; /* Espacio debajo del título */
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: Verdana, Geneva, sans-serif;
+
+}
+
+.profile-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-image img:hover {
+  transform: scale(1.05);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.info-section {
+  margin-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.info-section h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ffffff50;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-section p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.edit-btn {
+  background-color: #F27F0C;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #d36600;
+}
+
+
+/* Modal general */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 35px;
+  border-radius: 16px;
+  width: 420px;
+  color: #f5f5f5;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  font-family: Verdana, Geneva, sans-serif;
+
+}
+
+.modal-content h3 {
+  color: white;
+  margin-bottom: 25px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  margin: 15px 0 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="file"],
+.ngx-intl-tel-input input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+  border-color: #ff9800;
+  outline: none;
+}
+
+.modal-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+.imagen-preview {
+  margin-top: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;           /* Recorta la imagen sin deformarla */
+  border: 2px solid white;   /* Borde verde */
+  border-radius: 8px;          /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+/* Botones */
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn.guardar {
+  background-color: #d36600;
+  color: white;
+}
+
+.btn.guardar:hover {
+  background-color: #ffa726;
+}
+
+.btn.cancelar {
+  background-color: #555;
+  color: #fff;
+}
+
+.btn.cancelar:hover {
+  background-color: #777;
+}
+
+
+.banner-sede{
+  margin-top: 60px;
+  position: relative;
+}
+
+/* Ajustar el espacio entre la sección de información y la foto de la sede */
+.sede-contenido {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;  /* Espacio entre las columnas de foto e información */
+  margin-top: 30px;  /* Espacio adicional con respecto al div superior */
+  align-items: center; /* Centrar verticalmente las columnas */
+  position: relative; /* Asegura que los elementos internos sean relativos a este contenedor */
+}
+
+/* Centrar título / Center title */
+.titulo-sede {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Contenedor flex para separar en dos columnas / Flex container for two columns */
+.sede-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap; /* Soporta pantallas pequeñas */
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Fotos a la izquierda / Photos on the left */
+.sede-fotos {
+  flex: 1;
+  min-width: 250px;
+  padding-left: 50px; /* Mueve todo el contenido a la derecha */
+}
+
+.sede-foto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.sede-foto-grid img {
+  width: 600px;     /* ancho fijo */
+  height: 380px;    /* alto fijo */
+  object-fit: cover;
+  border-radius: 8px; /* ← Aumentado de 100px a 180px */
+}
+
+/* Información de la sede centrada */
+.sede-info {
+  flex: 2;
+  min-width: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Posicionamos la información de forma absoluta dentro del contenedor */
+  top: 50%; /* Colocamos el contenedor en el centro vertical de la foto */
+  left: 55%; /* Colocamos el contenedor en el centro horizontal de la foto */
+  transform: translate(-20%, -50%); /* Ajustamos la posición para que el contenedor esté perfectamente centrado */
+  z-index: 2; /* Aseguramos que la información quede por encima de la foto */
+  width: 40%; /* Puedes ajustar el tamaño según sea necesario */
+
+}
+
+.sede-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+/* Estilo del modal */
+.modal-imagen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Para que se superponga a otros elementos */
+}
+
+/* Estilo del contenido del modal */
+.modal-imagen-content {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 700%;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+/* Cerrar el modal */
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Imagen en el modal */
+.imagen-modal {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Para mantener las proporciones de la imagen */
+}
+
+
+/* Ajustes para pantallas móviles */
+@media screen and (max-width: 768px) {
+
+  html, body {
+    overflow-x: hidden; /* 🚫 Previene desplazamiento horizontal */
+    width: 100%;
+  }
+
+  .main-content{
+    margin-top: 20px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .profile-image {
+    margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px; /* Ajusta según sea necesario */
+    height: 180px; /* Ajusta según sea necesario */
+  }
+
+
+  .profile-image img {
+    width: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe todo el espacio del contenedor */
+    max-width: 100%;
+  }
+
+  .profile-info h2 {
+    font-size: 24px;
+  }
+
+  .profile-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .info-section {
+    padding: 10px;
+  }
+
+  .edit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .modal-content {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .modal-content input[type="text"],
+  .modal-content input[type="file"],
+  .ngx-intl-tel-input input {
+    width: 90%;
+  }
+
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  .sede-contenido {
+    flex-direction: column; /* Cambia de filas a columnas */
+    align-items: center; /* Centra todo el contenido */
+    gap: 20px;
+    position: static; /* Quita el contexto relativo */
+  }
+
+  .sede-fotos {
+    padding-left: 0; /* Elimina padding izquierdo */
+    width: 100%;
+    text-align: center;
+  }
+
+  .sede-foto-grid {
+    grid-template-columns: 1fr; /* Una sola imagen por fila */
+  }
+
+  .sede-foto-grid img {
+    width: 90vw; /* Imagen más pequeña y fluida */
+    height: auto;
+    max-width: 100%;
+
+  }
+
+  .sede-info {
+    position: static; /* Quita la posición absoluta */
+    width: 90%; /* Se adapta a pantalla */
+    transform: none;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .sede-info p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+
+
+  .modal-imagen-content {
+    width: 90%;
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+

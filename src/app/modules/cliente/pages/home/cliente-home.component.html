@@ -1,0 +1,39 @@
+<!-- Sidebar Menu para Cliente -->
+<nav class="menu" [class.mobile]="isMobile">
+  <ul class="menu-content">
+
+    <li>
+      <a routerLink="/cliente/inicio">
+        <span class="material-symbols-outlined">home</span>
+        <span class="menu-text">Inicio</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/cliente/perfil">
+        <span class="material-symbols-outlined">person</span>
+        <span class="menu-text">Ver Perfil</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/cliente/ver-productos">
+        <span class="material-symbols-outlined">inventory_2</span>
+        <span class="menu-text">Ver Productos</span>
+      </a>
+    </li>
+
+    <li>
+      <a (click)="logout()">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="menu-text">Salir</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

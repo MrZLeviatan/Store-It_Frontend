@@ -1,0 +1,446 @@
+/* Contenedor general */
+.contact-wrapper {
+  max-width: 1200px;
+  margin: 200px auto 0;
+  padding: 2rem;
+}
+
+/* Sección principal en dos columnas */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* ==================== DISEÑO COLUMNA IZQUIERDA ==================== */
+
+/* Columna izquierda */
+.contact-info {
+  flex: 1 1 45%;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.contact-block{
+  margin: 3rem  auto 0;
+}
+
+/* ==================== DISEÑO BOTONES WHATS, INSTAGRAM Y NUMERO  ==================== */
+
+.contact-button.whatsapp {
+  background-color: #22b057;
+  margin-right: 8px;
+  vertical-align: middle; /* Alineación vertical */
+}
+
+.contact-button.instagram {
+  background-color: #e1306c;
+}
+
+.contact-button.telefonoFijo{
+  background-color: #007bff;
+}
+
+
+.contact-button:hover {
+  opacity: 0.85;
+}
+
+/* Subtítulo */
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Descripción */
+.description {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+/* ==================== DISEÑO COLUMNA DERECHA ==================== */
+
+/* Columna derecha */
+.contact-form-container {
+  flex: 1 1 45%;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Estilos comunes */
+label {
+  font-weight: bold;
+}
+
+/* Estilo general para campos del formulario */
+form input,
+form select,
+form textarea{
+  width: 100%; /* Misma anchura para todos los campos */
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+/* Si algún campo está inválido */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border: 2px solid red;
+}
+
+
+/* Validación email */
+input.invalid {
+  border: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  animation: fadeInSlide 0.3s ease;
+}
+
+
+/* Transición suave para los inputs inválidos */
+input,
+select,
+textarea {
+  transition: border 0.3s ease;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.submit-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Estilos para botones sociales */
+.contact-button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+
+/* ==================== DISEÑO CONTAINER INFERIOR ==================== */
+
+.container-inferior {
+  display: flex;
+  flex-direction: column; /* Para que título y párrafo estén uno debajo del otro */
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  padding: 3rem 1rem;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+  margin-top: 2rem;
+}
+
+.titulo-container{
+  text-align: center;
+}
+
+/* Contenedor de los 3 beneficios */
+.beneficios-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Cada bloque individual */
+.beneficio {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Icono o imagen */
+.icono-beneficio {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Título del beneficio */
+.beneficio h4 {
+  margin: 0.4rem 0;
+  font-size: 1.2rem;
+}
+
+/* Descripción del beneficio */
+.beneficio p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+
+  .contact-wrapper {
+    margin: 130px auto 0;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sub-title{
+    font-size: 2rem;                  /* Tamaño del párrafo */
+    text-align: center;
+  }
+
+
+  .contact-info, .contact-block p,
+  .titulo-container{
+    font-size: 1.3rem;                  /* Tamaño del párrafo */
+    text-align: center;
+  }
+
+  .contact-button.whatsapp i,
+  .contact-button.instagram i,
+  .contact-button.telefonoFijo i{
+    margin-right: 8px;
+    vertical-align: middle; /* Alineación vertical */
+  }
+
+  .beneficio h4{
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .beneficio p{
+    font-size: 1.2rem;
+
+  }
+
+  .contact-block{
+    margin-top: 4rem;
+  }
+
+  .contact-button{
+    font-size: 1.1rem;                  /* Tamaño del párrafo */
+  }
+
+  .contact-info,
+  .contact-form-container {
+    flex: 1 1 100%;
+    padding: 1rem;
+    text-align: justify-all;
+  }
+
+  .contact-form-container {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+
+/* ==================== DISEÑO BOTÓN ANIMADO  ==================== */
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente (opcional) */
+  height: 100%;            /* O ajusta según necesidad */
+}
+
+
+.button.btn-cargando {
+  --primary: #F7AD19;
+  color: white;
+  cursor: wait;
+}
+
+.button.btn-activo {
+  --primary:#F27F0C;
+  color: white;
+}
+
+.btn-disabled {
+  color: white;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button {
+  transition: background-color 0.3s ease, cursor 0.3s ease;
+  width: 40%;
+  --primary: gray;
+  --primary-dark: #F27F0C;
+  --primary-darkest: #F7AD19;
+  --text: #FFFFFF;
+  --text-opacity: 1;
+  --success: #2B3044;
+  --success-scale: .2;
+  --success-opacity: 0;
+  --border-radius: 7;
+  --overflow: hidden;
+  --rotate: 0;
+  --plane-x: 0;
+  --plane-y: 0;
+  --plane-opacity: 1;
+  --left-wing-background: var(--primary);
+  --left-wing-first-x: 0;
+  --left-wing-first-y: 0;
+  --left-wing-second-x: 50;
+  --left-wing-second-y: 0;
+  --left-wing-third-x: 0;
+  --left-wing-third-y: 100;
+  --left-body-background: var(--primary);
+  --left-body-first-x: 50;
+  --left-body-first-y: 0;
+  --left-body-second-x: 50;
+  --left-body-second-y: 100;
+  --left-body-third-x: 0;
+  --left-body-third-y: 100;
+  --right-wing-background: var(--primary);
+  --right-wing-first-x: 50;
+  --right-wing-first-y: 0;
+  --right-wing-second-x: 100;
+  --right-wing-second-y: 0;
+  --right-wing-third-x: 100;
+  --right-wing-third-y: 100;
+  --right-body-background: var(--primary);
+  --right-body-first-x: 50;
+  --right-body-first-y: 0;
+  --right-body-second-x: 50;
+  --right-body-second-y: 100;
+  --right-body-third-x: 100;
+  --right-body-third-y: 100;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  border: 0;
+  padding: 8px 0;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  background: none;
+  outline: none;
+  color: var(--text);
+  transform: rotate(calc(var(--rotate) * 1deg)) translateZ(0);
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  .left,
+  .right {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: var(--plane-opacity);
+    transform: translate(calc(var(--plane-x) * 1px), calc(var(--plane-y) * 1px)) translateZ(0);
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: calc(var(--border-radius) * 1px);
+      transform: translate(var(--x, .4%), var(0)) translateZ(0);
+      z-index: var(--z-index, 2);
+      background: var(--background, var(--left-wing-background));
+      clip-path: polygon(calc(var(--first-x, var(--left-wing-first-x)) * 1%) calc(var(--first-y, var(--left-wing-first-y)) * 1%), calc(var(--second-x, var(--left-wing-second-x)) * 1%) calc(var(--second-y, var(--left-wing-second-y)) * 1%), calc(var(--third-x, var(--left-wing-third-x)) * 1%) calc(var(--third-y, var(--left-wing-third-y)) * 1%));
+    }
+  }
+  .left:after {
+    --x: 0;
+    --z-index: 1;
+    --background: var(--left-body-background);
+    --first-x: var(--left-body-first-x);
+    --first-y: var(--left-body-first-y);
+    --second-x: var(--left-body-second-x);
+    --second-y: var(--left-body-second-y);
+    --third-x: var(--left-body-third-x);
+    --third-y: var(--left-body-third-y);
+  }
+  .right:before {
+    --x: -.4%;
+    --z-index: 2;
+    --background: var(--right-wing-background);
+    --first-x: var(--right-wing-first-x);
+    --first-y: var(--right-wing-first-y);
+    --second-x: var(--right-wing-second-x);
+    --second-y: var(--right-wing-second-y);
+    --third-x: var(--right-wing-third-x);
+    --third-y: var(--right-wing-third-y);
+  }
+  .right:after {
+    --x: 0;
+    --z-index: 1;
+    --background: var(--right-body-background);
+    --first-x: var(--right-body-first-x);
+    --first-y: var(--right-body-first-y);
+    --second-x: var(--right-body-second-x);
+    --second-y: var(--right-body-second-y);
+    --third-x: var(--right-body-third-x);
+    --third-y: var(--right-body-third-y);
+  }
+  span {
+    display: block;
+    position: relative;
+    z-index: 4;
+    opacity: var(--text-opacity);
+    &.success {
+      z-index: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 8px;
+      transform: rotate(calc(var(--rotate) * -1deg)) scale(var(--success-scale)) translateZ(0);
+      opacity: var(--success-opacity);
+      color: var(--success);
+    }
+  }
+}
+
+
+
+
+

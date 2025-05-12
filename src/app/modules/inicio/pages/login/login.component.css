@@ -1,0 +1,359 @@
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Imagen del lado izquierdo */
+.login-image {
+  flex: 0.6;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px;
+}
+
+.login-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px; /* Opcional: bordes redondeados para más estilo */
+  object-position: top; /* <-- se asegura de mostrar la parte superior de la imagen */
+
+}
+
+/* Formulario del lado derecho */
+.login-form-container {
+  flex: 0.6;
+  background-color: #ffffff;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.05);
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.login-form-container h2 {
+  font-size: 32px;
+  color: #1976d2;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.login-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input {
+  width: 96%;
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* Enlaces y acciones */
+.login-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.forgot-password {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.forgot-password a {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  margin-top: 5px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: #1976d2;
+  cursor: pointer;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 500;
+}
+
+.link-button:hover{
+  text-decoration: underline;
+}
+
+
+/* Botón de envío */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.google-login-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.google-login-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-login-button:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+button[type="submit"]:hover {
+  background-color: #125ea2;
+}
+
+/* Enlace de contacto */
+.register-link {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.register-link a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+
+input.invalid {
+  border: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  animation: fadeInSlide 0.3s ease;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 360px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  cursor: default;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.modal-header {
+  cursor: move;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.modal input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal-actions button {
+  padding: 8px 40px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 200;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.modal-actions button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
+/* Fondo que oscurece el contenido detrás del modal */
+.banner-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Estilo del texto */
+.modal p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #333333;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+
+/* Input para la nueva contraseña */
+.modal input[type="password"] {
+  width: 90%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+
+.error small {
+  color: #d9534f; /* rojo */
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+
+
+  .login-wrapper {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-form-container {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    padding: 20px 15px;
+    flex: 1;
+  }
+
+  .form-group input{
+    width: 90%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,146 @@
+<legend>Registro de Clientes</legend>
+
+<!-- Indicador de pasos -->
+<!-- Indicador de pasos con círculo -->
+<div class="pasos-indicador">
+  <div class="paso" [class.activo]="paso === 1">
+    <span class="circulo"></span>
+    Paso 1: Foto y Datos Personales
+  </div>
+  <div class="paso" [class.activo]="paso === 2">
+    <span class="circulo"></span>
+    Paso 2: Datos User
+  </div>
+  <div class="paso" [class.activo]="paso === 3">
+    <span class="circulo"></span>
+    Paso 3: Ubicación / Confirmar y Registrar
+  </div>
+</div>
+
+
+<form [formGroup]="clienteForm" (ngSubmit)="(registrarCliente())">
+ <!-- PASO 1: Imagen + Datos Personales -->
+  <div *ngIf="paso === 1">
+    <label for="imagenPerfil" class="imagen-perfil-label">
+      <div class="imagen-perfil">
+        <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Foto de perfil" />
+        <span *ngIf="!imagenPreview">Seleccionar imagen</span>
+      </div>
+      <input #imageInput type="file" id="imagenPerfil" (change)="onFileChange($event)" style="display:none" />
+    </label>
+
+    <!-- Datos personales -->
+    <fieldset>
+      <legend>Datos Personales</legend>
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre completo" required />
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo</label>
+        <input id="correo" type="email" formControlName="correo" placeholder="Correo" required />
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono Principal</label>
+        <ngx-intl-tel-input
+          id="telefono"
+          [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+          [selectFirstCountry]="true"
+          [enableAutoCountrySelect]="true"
+          [cssClass]="'form-control'"
+          formControlName="telefono"
+          required>
+        </ngx-intl-tel-input>
+      </div>
+
+      <div class="form-group">
+        <label for="telefonoSecundario">Teléfono Secundario</label>
+        <ngx-intl-tel-input
+          id="telefonoSecundario"
+          [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+          [selectFirstCountry]="true"
+          [enableAutoCountrySelect]="true"
+          [cssClass]="'form-control'"
+          formControlName="telefonoSecundario">
+        </ngx-intl-tel-input>
+      </div>
+    </fieldset>
+  </div>
+
+
+    <!-- PASO 2: Usuario -->
+    <div *ngIf="paso === 2">
+      <fieldset>
+        <legend>Datos de Usuario</legend>
+
+
+        <div class="form-group">
+          <label for="tipoCliente">Tipo de cliente:</label>
+          <select id="tipoCliente" formControlName="tipoCliente" required>
+            <option value="">Seleccione...</option>
+            <option value="PERSONA_NATURAL">Persona Natural</option>
+            <option value="PERSONA_JURIDICA">Persona Jurídica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" formControlName="password" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirmarPassword">Confirmar Contraseña</label>
+          <input id="confirmarPassword" type="password" formControlName="confirmarPassword" required />
+        </div>
+      </fieldset>
+    </div>
+
+
+    <div *ngIf="paso == 3">
+
+      <div class="form-group">
+        <label>Ubicación (haz clic en el mapa):</label>
+        <div id="map" class="mapa"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="pais">País:</label>
+        <input type="text" id="pais" formControlName="pais" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" formControlName="ciudad" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="latitud">Latitud:</label>
+        <input type="number" id="latitud" formControlName="latitud" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="longitud">Longitud:</label>
+        <input type="number" id="longitud" formControlName="longitud" readonly />
+      </div>
+
+    </div>
+
+<!-- Controles de navegación -->
+<div class="button-group">
+  <!-- Botón Anterior -->
+  <button type="button" *ngIf="paso > 1" (click)="anteriorPaso()">Anterior</button>
+  <!-- Botón Siguiente -->
+  <button type="button" *ngIf="paso < 3" (click)="siguientePaso()">Siguiente</button>
+  <button type="submit" *ngIf="paso === 3" [disabled]="clienteForm.invalid">Registrar Cliente</button>
+</div>
+</form>
+
+
+
+
+
+
+

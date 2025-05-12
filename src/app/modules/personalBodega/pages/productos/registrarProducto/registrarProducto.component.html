@@ -1,0 +1,82 @@
+<div class="container">
+  <h2>Registrar Producto</h2>
+
+  <form [formGroup]="registrarProductoForm" (ngSubmit)="registrarProducto()">
+
+    <!-- Nombre del Producto -->
+    <div class="form-group">
+      <label for="nombre">Nombre del Producto</label>
+      <input id="nombre" formControlName="nombre" class="form-control" placeholder="Nombre del producto" />
+      <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="text-danger">
+        <div *ngIf="f['nombre'].errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="f['nombre'].errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+      </div>
+    </div>
+
+    <!-- Descripción del Producto -->
+    <div class="form-group">
+      <label for="descripcion">Descripción del Producto</label>
+      <input id="descripcion" formControlName="descripcion" class="form-control" placeholder="Descripción del producto" />
+      <div *ngIf="f['descripcion'].touched && f['descripcion'].invalid" class="text-danger">
+        <div *ngIf="f['descripcion'].errors?.['required']">La descripción es obligatoria.</div>
+        <div *ngIf="f['descripcion'].errors?.['minlength']">La descripción debe tener al menos 10 caracteres.</div>
+      </div>
+    </div>
+
+    <!-- Área Ocupada -->
+    <div class="form-group">
+      <label for="areaOcupada">Área Ocupada</label>
+      <input id="areaOcupada" formControlName="areaOcupada" type="number" class="form-control" placeholder="Área ocupada" />
+    </div>
+
+    <!-- Altura -->
+    <div class="form-group">
+      <label for="altura">Altura</label>
+      <input id="altura" formControlName="altura" type="number" class="form-control" placeholder="Altura" />
+    </div>
+
+    <!-- Tipo de Producto / Product Type -->
+    <div class="form-group">
+      <label for="tipoProducto">Tipo de Producto</label>
+      <select id="tipoProducto" formControlName="tipoProducto" class="form-control">
+        <option value="" disabled selected>Seleccione un tipo</option>
+        <option value="FRAGIL">Frágil</option>
+        <option value="NO_FRAGIL">No Frágil</option>
+      </select>
+      <div *ngIf="f['tipoProducto'].touched && f['tipoProducto'].invalid" class="text-danger">
+        <div *ngIf="f['tipoProducto'].errors?.['required']">Debe seleccionar un tipo de producto.</div>
+      </div>
+    </div>
+
+
+    <!-- Email del Cliente -->
+    <div class="form-group">
+      <label for="emailCliente">Email del Cliente</label>
+      <input id="emailCliente" formControlName="emailCliente" class="form-control" placeholder="Email del cliente" />
+    </div>
+
+    <!-- Botón para buscar espacios por email / Button to search spaces by email -->
+    <div class="button">
+      <button type="submit" class="btn btn-info" (click)="obtenerEspaciosPorCliente()">
+        Buscar Espacios
+      </button>
+    </div>
+
+    <!-- Selección del Espacio -->
+    <div class="form-group">
+      <label for="idEspacio">Seleccionar Espacio</label>
+      <select id="idEspacio" formControlName="idEspacio" class="form-control">
+        <option *ngFor="let espacio of espacios" [value]="espacio.id">
+          {{ espacio.areaTotal }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botón de Envío -->
+    <button type="submit" class="btn btn-primary" [disabled]="registrarProductoForm.invalid">
+      Registrar Producto
+    </button>
+  </form>
+</div>
+
+

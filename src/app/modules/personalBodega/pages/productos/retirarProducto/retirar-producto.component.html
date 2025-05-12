@@ -1,0 +1,26 @@
+<div class="contenedor">
+  <h2 class="titulo">Retirar Producto</h2>
+
+  <div class="form-group">
+    <label for="email">Email del Cliente:</label>
+    <input type="email" id="email" [(ngModel)]="emailCliente" placeholder="cliente@email.com" class="form-control" />
+  </div>
+
+  <button (click)="buscarProductos()" class="btn btn-primary">Buscar Productos</button>
+
+  <div *ngIf="productos && productos.length > 0" class="productos-container">
+    <div class="form-group">
+      <label for="producto">Selecciona un Producto:</label>
+      <select id="producto" [(ngModel)]="productoSeleccionadoId" class="form-control">
+        <option *ngFor="let producto of productos" [value]="producto.id">
+          Nombre: {{ producto.nombre }} Tipo Producto: ({{ producto.tipoProducto }})
+          Descripción: {{ producto.descripcion}}
+        </option>
+      </select>
+    </div>
+
+    <button (click)="retirarProducto()" class="btn btn-warning">Retirar Producto</button>
+  </div>
+
+</div>
+

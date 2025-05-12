@@ -1,0 +1,48 @@
+<div class="contenedor-formulario">
+  <h2>Registro de Nuevo Contrato</h2>
+
+  <!-- Mapa -->
+  <label for="mapa">Bodegas Disponibles:</label>
+  <div id="mapa" class="mapa-container"></div>
+
+  <!-- Lista de espacios disponibles -->
+  <div class="lista-espacios" *ngIf="espacios.length > 0; else noEspacios">
+    <h3>Selecciona un Espacio</h3>
+    <div class="espacio-item"
+         *ngFor="let espacio of espacios"
+         (click)="seleccionarEspacio(espacio)"
+         [class.seleccionado]="espacioSeleccionado?.id === espacio.id">
+      Espacio {{ espacio.areaTotal }}m2 - Estado: {{ espacio.estadoEspacio }}
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay espacios disponibles -->
+  <ng-template #noEspacios>
+    <p>No hay espacios disponibles en esta bodega.</p>
+  </ng-template>
+
+  <!-- Formulario de contrato -->
+  <form [formGroup]="contratoForm" (ngSubmit)="crearContrato()">
+    <div class="form-grupo">
+      <label for="emailCliente">Email del Cliente:</label>
+      <input type="email" id="emailCliente" formControlName="emailCliente" required />
+    </div>
+
+    <div class="form-grupo">
+      <label for="fechaFin">Fecha de Fin:</label>
+      <input type="date" id="fechaFin" formControlName="fechaFin" required />
+    </div>
+
+    <div class="form-grupo">
+      <label for="valor">Valor del Contrato:</label>
+      <input type="number" id="valor" formControlName="valor" required />
+    </div>
+
+    <div class="form-grupo">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" formControlName="descripcion" rows="3" required></textarea>
+    </div>
+
+    <button type="submit" [disabled]="contratoForm.invalid">Crear Contrato</button>
+  </form>
+</div>

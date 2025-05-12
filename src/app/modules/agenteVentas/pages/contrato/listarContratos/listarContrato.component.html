@@ -1,0 +1,64 @@
+<!-- Formulario de filtros para Contratos / Filter form for Contracts -->
+<form [formGroup]="filtroForm" (ngSubmit)="buscarContratos()" class="filtros-form">
+  <!-- Fecha de Inicio del Contrato -->
+  <input type="date" placeholder="Fecha inicio contrato" formControlName="fechaInicio">
+
+  <!-- Estado del Contrato -->
+  <select formControlName="estadoContrato">
+    <option value="">-- Estado del Contrato --</option>
+    <option value="ACTIVO">Activo</option>
+    <option value="FINALIZADO">Finalizado</option>
+    <option value="CANCELADO">Cancelado</option>
+    <option value="PENDIENTE_VERIFICACION">Pendiente Verificación</option>
+    <option value="VERIFICADO_POR_CLIENTE">Verificado por Cliente</option>
+
+  </select>
+
+  <!-- Botones -->
+  <button type="submit">Buscar</button>
+  <button type="button" (click)="limpiarFiltros()">Limpiar</button>
+</form>
+
+<!-- Tabla de resultados -->
+<table *ngIf="contratos.length > 0">
+  <thead>
+  <tr>
+    <th>Cliente</th>
+    <th>Espacio</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Fin</th>
+    <th>Estado</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contrato of contratos" (click)="abrirModal(contrato)" style="cursor: pointer;">
+    <td>{{ contrato.estadoContrato}}</td>
+    <td>{{ contrato.fechaInicio }}</td>
+    <td>{{ contrato.fechaFin }}</td>
+    <td>{{ contrato.valor }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Controles de paginación -->
+<div class="paginacion">
+  <button (click)="cambiarPagina(filtroForm.value.pagina - 1)" [disabled]="filtroForm.value.pagina === 0">Anterior</button>
+  <span>Página {{ filtroForm.value.pagina }}</span>
+  <button (click)="cambiarPagina(filtroForm.value.pagina + 1)">Siguiente</button>
+</div>
+
+
+<!-- Modal de detalle del contrato -->
+<div class="modal-overlay" *ngIf="contratoSeleccionado">
+  <div class="modal-content">
+    <div class="modal-body">
+      <!-- Información detallada del contrato -->
+      <h2>Detalles del Contrato</h2>
+      <p><strong>Valor:</strong> {{ contratoSeleccionado.valor}}</p>
+      <p><strong>Estado Contrato:</strong> {{ contratoSeleccionado.estadoContrato }}</p>
+      <p><strong>Fecha Inicio:</strong> {{ contratoSeleccionado.fechaInicio }}</p>
+      <p><strong>Fecha Fin:</strong> {{ contratoSeleccionado.fechaFin }}</p>
+      <button (click)="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+</div>

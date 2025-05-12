@@ -31,3 +31,20 @@ replay_pid*
 /*/bin/
 /*/build/
 /build/
+
+
+# Ignorar node_modules (dependencias)
+node_modules/
+
+# Build de producción de Angular
+dist/
+.angular/
+
+# Archivos temporales y de entorno
+tmp/
+.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+

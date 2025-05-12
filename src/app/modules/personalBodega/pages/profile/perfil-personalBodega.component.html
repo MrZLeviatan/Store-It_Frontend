@@ -1,0 +1,109 @@
+<div class="main-content">
+  <h1 class="profile-title">Mi Cuenta – Personal de Bodegas</h1>
+  <div class="profile-container" *ngIf="personalBodega">
+    <div class="profile-image">
+      <img [src]="personalBodega.imagenPerfil" alt="Foto de perfil" />
+    </div>
+    <div class="profile-info">
+      <h2>{{ personalBodega.nombre }}</h2>
+
+      <section class="info-section">
+        <h3>Información Personal</h3>
+        <p><strong>Teléfono:</strong> {{ personalBodega.telefono }}</p>
+        <p><strong>Tel. Secundario:</strong> {{ personalBodega.telefonoSecundario }}</p>
+        <p><strong>Email:</strong> {{ personalBodega.user.email }}</p>
+      </section>
+
+      <section class="info-section">
+        <h3>Datos Laborales</h3>
+        <p><strong>Fecha Contratación:</strong> {{ personalBodega.datosLaborales.fechaContratacion }}</p>
+        <p><strong>Fecha Fin Contrato:</strong> {{ personalBodega.datosLaborales.fechaFinContrato || 'Activo' }}</p>
+        <p><strong>Sueldo:</strong> ${{ personalBodega.datosLaborales.sueldo }}</p>
+        <p><strong>Email Empresarial:</strong> {{ personalBodega.datosLaborales.emailEmpresarial }}</p>
+        <p><strong>Tipo Contrato:</strong> {{ personalBodega.datosLaborales.tipoContrato }}</p>
+        <p><strong>Estado Contrato:</strong> {{ personalBodega.datosLaborales.estadoContratoLaboral }}</p>
+      </section>
+
+      <button (click)="abrirModal()" class="edit-btn">Editar Cuenta</button>
+    </div>
+  </div>
+
+  <div class="banner-sede">
+    <h1 class="titulo-sede">Detalles de la Bodega Asignada</h1>
+    <section class="info-section" *ngIf="bodega">
+      <div class="sede-contenido">
+        <div class="sede-fotos" *ngIf="bodega.fotos?.length">
+          <div class="sede-foto-rotatoria">
+            <img
+              [src]="bodega.fotos[fotoActualIndex]"
+              alt="Foto Bodega"
+              (click)="abrirModalImagen(bodega.fotos[fotoActualIndex])"
+            />
+          </div>
+        </div>
+
+
+        <div class="sede-info">
+          <h3>Información de la Sede</h3>
+          <p><strong>Area Total:</strong> {{ bodega.areaTotal }}</p>
+          <p><strong>Dirección:</strong> {{ bodega.direccion }}</p>
+          <p><strong>Teléfono:</strong> {{ bodega.telefono }}</p>
+          <p><strong>Ubicación:</strong> {{ bodega.ubicacion.ciudad }}, {{ bodega.ubicacion.pais }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-imagen" *ngIf="mostrarModalImagen">
+    <div class="modal-imagen-content">
+      <span class="close" (click)="cerrarModalImagen()">×</span>
+      <img [src]="imagenBodegaAmpliada" alt="Imagen Sede Ampliada" class="imagen-modal" />
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <h3>Editar Cuenta</h3>
+      <form (ngSubmit)="editarCuenta()" #formEditar="ngForm" enctype="multipart/form-data">
+        <input type="hidden" [value]="personalBodega.id" name="id">
+
+        <label>Nombre:</label>
+        <input type="text" [(ngModel)]="form.nombre" name="nombre" maxlength="100" required>
+
+        <label>Teléfono:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefono"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefono"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+        <label>Teléfono Secundario:</label>
+        <div class="telefono-container">
+          <ngx-intl-tel-input
+            [(ngModel)]="form.telefonoSecundario"
+            [preferredCountries]="['co', 'us', 'gb', 'ca', 'mx', 'fr']"
+            name="telefonoSecundario"
+            [selectFirstCountry]="true"
+            [enableAutoCountrySelect]="true"
+            required>
+          </ngx-intl-tel-input>
+        </div>
+
+        <label>Imagen de Perfil:</label>
+        <input type="file" (change)="onFileChange($event)" accept="image/png, image/jpeg" name="imagenPerfil">
+
+        <img *ngIf="imagenPreview" [src]="imagenPreview" alt="Vista previa" class="imagen-preview">
+
+        <div class="modal-actions">
+          <button type="submit" class="btn guardar">Guardar Cambios</button>
+          <button type="button" class="btn cancelar" (click)="cerrarModal()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

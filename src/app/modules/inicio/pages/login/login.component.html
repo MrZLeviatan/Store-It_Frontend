@@ -1,0 +1,137 @@
+<div class="login-wrapper">
+  <!-- Lado izquierdo con imagen -->
+  <div class="login-image">
+    <img src="https://res.cloudinary.com/dehltwwbu/image/upload/v1746770624/20250508_1129_Trabajadores_en_Bodega_remix_01jtrbkrtef3tr9wkezparwqnj_1_3_jbie84.png"
+         alt="Imagen de inicio de sesión" />
+  </div>
+
+  <!-- Lado derecho con formulario -->
+  <div class="login-form-container">
+    <h2>Bienvenido de nuevo</h2>
+    <p class="login-subtitle">Inicia sesión para continuar</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [class.invalid]="submitted && email?.invalid && email?.value"
+          placeholder="Ingresa tu correo"
+        />
+        <div
+          class="error-message"
+          *ngIf="submitted && email?.invalid && email?.value"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red"
+               viewBox="0 0 16 16" style="margin-right: 5px;">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.964 0L.165 13.233c-.457.778.091 1.767.982 1.767h13.706c.89 0 1.438-.99.982-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+           Ingresa un correo electrónico válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          [class.invalid]="submitted && !password?.value"
+          placeholder="Ingresa tu contraseña"
+        />
+        <!-- Enlace para restablecer contraseña -->
+        <div class="forgot-password">
+          <button type="button" class="link-button" (click)="abrirModalRestablecer()">
+            ¿Olvidaste tu contraseña?
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Mostrar error general solo si se presiona el botón -->
+      <div *ngIf="submitted && errorMessage" class="form-group error-message">
+        {{ errorMessage }}
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Iniciar sesión</button>
+      </div>
+    </form>
+
+    <!-- Contenedor invisible que carga el cliente de Google -->
+    <div id="g_id_onload"
+         data-client_id="719752748978-o4ah1907npcfhqqb7eoh7ol49a8objga.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+
+    <!-- Botón de inicio de sesión con Google -->
+    <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
+    </div>
+
+
+    <p class="register-link">¿No tienes una cuenta? <a href="/contacto">Contáctanos</a></p>
+  </div>
+</div>
+
+
+<div class="modal-backdrop" *ngIf="mostrarModal">
+  <div class="modal" #modal (mousedown)="restablecerPasswordService.startDrag($event)">
+    <div class="modal-header">Restablecer contraseña</div>
+    <form [formGroup]="restablecerPasswordService.restablecerForm"
+          (ngSubmit)="restablecerPasswordService.enviarSolicitud()">
+      <label for="email">Correo electrónico</label>
+      <input
+        type="email"
+        id="resetEmail"
+        formControlName="email"
+        placeholder="Tu correo"
+      />
+      <div class="error-message" *ngIf="restablecerPasswordService.restablecerForm.get('email')?.invalid &&
+      restablecerPasswordService.enviado">
+        Ingresa un correo válido.
+      </div>
+      <div class="modal-actions">
+        <button type="submit">Enviar código</button>
+        <button type="button" (click)="cerrarModalRestablecer()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- Mostrar banner de actualización de contraseña -->
+<div class="banner-backdrop" *ngIf="mostrarBanner">
+  <div class="modal" #modal>
+    <p>Código verificado. Por favor actualiza tu contraseña.</p>
+
+    <form [formGroup]="passwordForm" (ngSubmit)="actualizarPassword()">
+      <input type="password" formControlName="nuevaPassword" placeholder="Nueva contraseña">
+
+      <!-- Mensaje de error si la contraseña es inválida -->
+      <div class="error" *ngIf="passwordForm.get('nuevaPassword')?.touched && passwordForm.get('nuevaPassword')?.errors">
+        <small *ngIf="passwordForm.get('nuevaPassword')?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="passwordForm.get('nuevaPassword')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+      </div>
+
+      <button type="submit" [disabled]="passwordForm.invalid">Actualizar</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
